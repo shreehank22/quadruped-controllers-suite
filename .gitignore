@@ -22,3 +22,5 @@ CMakeUserPresets.json
 benchmarks/results/
 *.mp4
 MUJOCO_LOG.TXT
+
+.vscode/browse.vc.db*
