@@ -25,3 +25,10 @@ print("constraint models:", constraint_models)
 
 print("pinocchio joint names:", [pin_model.names[i] for i in range(pin_model.njoints)])
 print("mujoco joint names:", [mujoco.mj_id2name(mj_model, mujoco.mjtObj.mjOBJ_JOINT, i) for i in range(mj_model.njnt)])
+
+print("\nnum actuators:", mj_model.nu)
+print("actuator names:", [mujoco.mj_id2name(mj_model, mujoco.mjtObj.mjOBJ_ACTUATOR, i) for i in range(mj_model.nu)])
+
+# actuator_trnid[:,0] gives the joint id each actuator drives (for joint-type transmissions)
+print("actuator -> joint id:", mj_model.actuator_trnid[:, 0])
+print("joint names by id:", [mujoco.mj_id2name(mj_model, mujoco.mjtObj.mjOBJ_JOINT, j) for j in mj_model.actuator_trnid[:, 0]])
